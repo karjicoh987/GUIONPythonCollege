@@ -13,7 +13,6 @@ from matplotlib import colors as mcolors
 from PyQt5.QtCore import QCoreApplication
 import sys, time, smtplib, ssl, csv, requests, mimetypes, os
 
-a = []
 
 
 class auth(QtWidgets.QWidget):
