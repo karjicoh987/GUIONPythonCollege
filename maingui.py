@@ -5,7 +5,6 @@ from email import encoders
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
-
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
@@ -137,14 +136,14 @@ class auth(QtWidgets.QWidget):
                         wind.setWindowTitle("NtmtLern")
                         wind.setWindowIcon(QIcon("image/graduation.png"))
                         wind.show()
-                        print("Админ")
+
                         # self.login.clear()
                         # self.password.clear()
                         self.close()
                         break
                     if login == "hristova-ju":
                         self.status = "teacher"
-                        print("Учитель")
+
                         self.close()
                         wind.resize(1000, 800)
                         wind.setWindowTitle("NtmtLern")
@@ -156,7 +155,7 @@ class auth(QtWidgets.QWidget):
                         break
                     else:
                         self.status = "student"
-                        print("Ученик")
+
                         self.close()
                         wind.resize(1000, 800)
                         wind.setWindowTitle("NtmtLern")
@@ -980,7 +979,6 @@ class myWindow(QtWidgets.QWidget):
             self.buf_widget.clear()
 
         f = open("inf/users.csv", "r")
-        print("Логин пользователя", auth.login.text())
         if auth.status == "student":
 
             for i in range(10, 15):
@@ -990,8 +988,6 @@ class myWindow(QtWidgets.QWidget):
             for col in csv.DictReader(f, delimiter=','):
 
                 if col["Фамилия"].lower() in auth.login.text():
-                    print(col)
-                    print(col["Электронная почта"])
                     self.emailUser.setText(
                         "Электронная почта" + "\n" + col["Электронная почта"])
                     self.LastNameUser.setText(
@@ -1031,9 +1027,7 @@ class myWindow(QtWidgets.QWidget):
                         "Процент выполнения" + "\n" + "100")
 
                     for i in csv.DictReader(F_1,delimiter=','):
-                        print(text)
                         if text in (i["Имя"] + " " + i["Фамилия"]):
-                            print(i)
                             self.averagePointUser.setText("Средний балл" + "\n" + i["Средний балл"])
 
                             F_1.close()
@@ -1058,7 +1052,6 @@ class myWindow(QtWidgets.QWidget):
         fname = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file',
                                                       '/home')
         self.path_file.append(fname[0])
-        print(fname[0])
 
     def mail_shower(self):
         if self.buf_widget != []:
